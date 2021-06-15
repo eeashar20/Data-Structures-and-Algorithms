@@ -5,6 +5,7 @@ class LinkedList:
     def __init__(self):
         self.first: Node = None
         self.last: Node = None
+        self.len = 0
 
     """This function determines whether the LinkedList is empty or not"""
 
@@ -21,16 +22,19 @@ class LinkedList:
             node.next = self.first
             self.first = node
 
+        self.len += 1
+
     """This function inserts the node at the beginning of the LinkedList"""
 
     def add_last(self, data):
         node = Node(data)
         if self.is_empty():
             self.first = self.last = node
-            # self.last = self.first
         else:
             self.last.next = node
             self.last = node
+
+        self.len += 1
 
     """"This function deletes the node from the beginning of the LinkedList"""
 
@@ -41,11 +45,12 @@ class LinkedList:
 
         if self.first == self.last:
             self.first = self.last = None
-            return
+        else:
+            node = self.first
+            self.first = self.first.next
+            node.next = None
 
-        node = self.first
-        self.first = self.first.next
-        node.next = None
+        self.len -= 1
 
     """This function deletes the node from the end of the LinkedList"""
 
@@ -53,16 +58,17 @@ class LinkedList:
         if self.is_empty():
             print("The LinkedList is empty!")
             return
-        
+
         if self.first == self.last:
             self.first = self.last = None
-            return
+        else:
+            node = self.first
+            while node.next.next is not None:
+                node = node.next
+            node.next = None
+            self.last = node
 
-        node = self.first
-        while node.next.next is not None:
-            node = node.next
-        node.next = None
-        self.last = node
+        self.len -= 1
 
     """This function determines whether the given number is present in the LinkedList or not."""
 
@@ -88,3 +94,7 @@ class LinkedList:
             current = current.next
             index += 1
         return -1
+
+    """This function returns the size of the Linked List i.e. the number of elements in it."""
+    def size(self):
+        return self.len
