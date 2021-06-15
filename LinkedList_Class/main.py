@@ -13,5 +13,7 @@ llist.delete_last()
 print(llist.last.value)
 llist.delete_first()
 print(llist.first.value)
+llist.contains(15)
+print(llist.index_of(18))
 
 
