@@ -63,12 +63,7 @@ class LinkedList:
             print("The LinkedList is empty!")
             return
 
-        current = self.first
-        while current is not None:
-            if current.value == data:
-                return True
-            current = current.next
-        return False
+        return self.index_of(data) != -1
 
     """This function finds the index of the given element"""
 

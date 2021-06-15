@@ -13,7 +13,7 @@ print(llist.last.value)
 # print(llist.last.value)
 # llist.delete_first()
 # print(llist.first.value)
-print(llist.contains(7))
+print(llist.contains(482))
 print(llist.index_of(12))
 
 
