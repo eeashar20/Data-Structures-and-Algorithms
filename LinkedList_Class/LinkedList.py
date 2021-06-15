@@ -17,26 +17,23 @@ class LinkedList:
     """This function inserts the node at the beginning of the LinkedList"""
 
     def add_first(self, data):
+        node = Node(data)
         if self.is_empty():
-            self.first = Node(data)
-            self.last = self.first
-            return
+            self.first = self.last = node
         else:
-            node: Node = self.first
-            self.first = Node(data)
-            self.first.next = node
+            node.next = self.first
+            self.first = node
 
     """This function inserts the node at the beginning of the LinkedList"""
 
     def add_last(self, data):
+        node = Node(data)
         if self.is_empty():
-            self.first = Node(data)
-            self.last = self.first
-            return
+            self.first = self.last = node
+            # self.last = self.first
         else:
-            node: Node = self.last
-            self.last = Node(data)
-            node.next = self.last
+            self.last.next = node
+            self.last = node
 
     """"This function deletes the node from the beginning of the LinkedList"""
 
