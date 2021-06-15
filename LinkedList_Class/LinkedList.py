@@ -63,13 +63,12 @@ class LinkedList:
             print("The LinkedList is empty!")
             return
 
-        node = self.first
-        while node is not None:
-            if node.value == data:
-                print(f"The Linked List contains {data}.")
-                return
-            node = node.next
-        print(f"{data} is not present in the LinkedList.")
+        current = self.first
+        while current is not None:
+            if current.value == data:
+                return True
+            current = current.next
+        return False
 
     """This function finds the index of the given element"""
 
@@ -78,12 +77,11 @@ class LinkedList:
             print("The LinkedList is empty!")
             return
 
-        node = self.first
+        current = self.first
         index = 0
-        while node is not None:
-            if node.value == data:
+        while current is not None:
+            if current.value == data:
                 return index
-            node = node.next
+            current = current.next
             index += 1
-        print(f"{data} is not present in the LinkedList.")
         return -1
