@@ -98,3 +98,14 @@ class LinkedList:
     """This function returns the size of the Linked List i.e. the number of elements in it."""
     def size(self):
         return self.len
+
+    """This function converts the Linked List into an Array"""
+
+    def to_array(self):
+        array = list()
+        current_node = self.first
+        while current_node is not None:
+            array.append(current_node.value)
+            current_node = current_node.next
+
+        return array
