@@ -9,10 +9,7 @@ class LinkedList:
     """This function determines whether the LinkedList is empty or not"""
 
     def is_empty(self):
-        if self.first is None:
-            return True
-        else:
-            return False
+        return self.first is None
 
     """This function inserts the node at the beginning of the LinkedList"""
 
