@@ -39,6 +39,10 @@ class LinkedList:
             print("The LinkedList is empty!")
             return
 
+        if self.first == self.last:
+            self.first = self.last = None
+            return
+
         node = self.first
         self.first = self.first.next
         node.next = None
@@ -48,6 +52,10 @@ class LinkedList:
     def delete_last(self):
         if self.is_empty():
             print("The LinkedList is empty!")
+            return
+        
+        if self.first == self.last:
+            self.first = self.last = None
             return
 
         node = self.first
