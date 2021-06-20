@@ -128,5 +128,29 @@ class LinkedList:
         self.last.next = None
         self.first = previous
 
+    """This function returns the value of the kth node from the end."""
+    # example Linked list [10 -> 20 -> 30 -> 40 -> 50]
+    #                                   *           *
+    # k = 1 (50)
+    # k = 2 (40)
+    # k = 3 (30_
+    def get_kth_from_the_end(self, k):
+        if self.is_empty():
+            print("No data in the Linked List.")
+            return
 
+        f_ptr = s_ptr = self.first
+        distance = k - 1
+        count = 0
+        while count < distance:
+            s_ptr = s_ptr.next
+            print(f"I am count {count}")
+            if s_ptr is None:
+                raise ValueError("Index can't be greater than the total number of elements in the Linked List")
+            count += 1
 
+        while s_ptr.next is not None:
+            f_ptr = f_ptr.next
+            s_ptr = s_ptr.next
+
+        return f_ptr.value
