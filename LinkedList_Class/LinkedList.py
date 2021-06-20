@@ -96,6 +96,7 @@ class LinkedList:
         return -1
 
     """This function returns the size of the Linked List i.e. the number of elements in it."""
+
     def size(self):
         return self.len
 
@@ -109,3 +110,20 @@ class LinkedList:
             current_node = current_node.next
 
         return array
+
+    """This function reverses the Linked List without making its copy"""
+    def reverse(self):
+        previous = self.first
+        current = previous.next
+        previous.next = None
+        while current is not None:
+            following = current.next
+            current.next = previous
+            previous = current
+            current = following
+
+        tmp = self.first
+        self.first = self.last
+        self.last = tmp
+
+
