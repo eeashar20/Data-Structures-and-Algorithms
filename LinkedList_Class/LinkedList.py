@@ -113,17 +113,20 @@ class LinkedList:
 
     """This function reverses the Linked List without making its copy"""
     def reverse(self):
+        if self.is_empty():
+            return
+
         previous = self.first
         current = previous.next
-        previous.next = None
         while current is not None:
             following = current.next
             current.next = previous
             previous = current
             current = following
 
-        tmp = self.first
-        self.first = self.last
-        self.last = tmp
+        self.last = self.first
+        self.last.next = None
+        self.first = previous
+
 
 
