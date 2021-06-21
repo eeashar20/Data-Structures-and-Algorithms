@@ -112,6 +112,7 @@ class LinkedList:
         return array
 
     """This function reverses the Linked List without making its copy"""
+
     def reverse(self):
         if self.is_empty():
             return
@@ -129,6 +130,7 @@ class LinkedList:
         self.first = previous
 
     """This function returns the value of the kth node from the end."""
+
     # example Linked list [10 -> 20 -> 30 -> 40 -> 50]
     #                                   *           *
     # k = 1 (50)
@@ -154,3 +156,37 @@ class LinkedList:
             s_ptr = s_ptr.next
 
         return f_ptr.value
+
+    """This function prints the middle of the Linked List. If the list has an even number of nodes, there would be 
+    two middle nodes. """
+
+    def print_middle(self):
+        f_ptr = s_ptr = self.first
+        count = 0
+        while s_ptr != self.last:
+            s_ptr = s_ptr.next
+            count += 1
+
+        if (count + 1) % 2 != 0:  # Here this count + 1 represents the whether the Linked List has even no. of nodes or
+            # odd no. of nodes.
+            for i in range(0, count // 2):
+                f_ptr = f_ptr.next
+            print(f_ptr.value)
+
+        else:
+            for i in range(0, count // 2):
+                f_ptr = f_ptr.next
+            print(f_ptr.value, f_ptr.next.value)
+
+    """Mosh's Solution"""
+    def printMiddle(self):
+        a = self.first
+        b = self.first
+        while b != self.last and b.next != self.last:
+            b = b.next.next;
+            a = a.next;
+
+        if b == self.last:
+            print(a.value);
+        else:
+            print(f"{a.value} , {a.next.value}")

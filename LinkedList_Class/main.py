@@ -21,9 +21,15 @@ llist.add_last(20)
 llist.add_last(30)
 llist.add_last(40)
 llist.add_last(50)
+llist.add_last(60)
+llist.add_last(70)
+# llist.add_last(80)
 
 
-print(llist.get_kth_from_the_end(-6))
+
+# print(llist.get_kth_from_the_end(-6))
+
+llist.printMiddle()
 
 
 
