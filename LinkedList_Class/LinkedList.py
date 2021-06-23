@@ -179,14 +179,25 @@ class LinkedList:
             print(f_ptr.value, f_ptr.next.value)
 
     """Mosh's Solution"""
+
     def printMiddle(self):
         a = self.first
         b = self.first
         while b != self.last and b.next != self.last:
-            b = b.next.next;
-            a = a.next;
+            b = b.next.next
+            a = a.next
 
         if b == self.last:
-            print(a.value);
+            print(a.value)
         else:
             print(f"{a.value} , {a.next.value}")
+
+    def has_loop(self):
+        slow = fast = self.first
+        while fast is not None and fast.next is not None:
+            fast = fast.next.next
+            slow = slow.next
+            if slow == fast:
+                return True
+
+        return False

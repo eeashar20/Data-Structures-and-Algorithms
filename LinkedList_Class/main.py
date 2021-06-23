@@ -19,17 +19,14 @@ llist = LinkedList()
 llist.add_last(10)
 llist.add_last(20)
 llist.add_last(30)
+node = llist.last
 llist.add_last(40)
 llist.add_last(50)
-llist.add_last(60)
-llist.add_last(70)
+llist.last.next = node # This line is here to make a loop to the third node from the last node.
+# llist.add_last(60)
+# llist.add_last(70)
 # llist.add_last(80)
-
-
-
-# print(llist.get_kth_from_the_end(-6))
-
-llist.printMiddle()
+print(llist.has_loop())
 
 
 
